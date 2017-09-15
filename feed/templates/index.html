@@ -6,8 +6,15 @@
         <div class="row">
             <div class="col-md-12" style="text-align: center";>
                 <h1>Hello World {{ name }}</h1>
-                {% for i in range10 %}
-                    <p>LLolololo: {{ i }}</p>
+                {% for post in object_list %}
+                    <p>{{ post.author }}: {{ post.body }} / {{ post.category }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {% for category in categories %}
+                    <p>{{ category }}</p>
                 {% endfor %}
             </div>
         </div>

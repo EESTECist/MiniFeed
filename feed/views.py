@@ -1,4 +1,12 @@
-from django.shortcuts import render_to_response
+from django.views import generic
+from feed.models import Category, Post
 
-def index(request):
-    return render_to_response("index.html", context={"name": "Osman", "range10": range(10)})
+
+class IndexView(generic.ListView):
+    model = Post
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
