@@ -25,7 +25,7 @@ SECRET_KEY = 'sepj-c&l(bz34z)t)iid9mhf6ij&v_t3_+c)t#x7iy^_#6be3!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "turkyilmaz.me"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'feed',
 ]
 
 MIDDLEWARE = [
