@@ -1,0 +1,4 @@
+Django
+django-bootstrap-form
+Pillow
+django-gravatar2
