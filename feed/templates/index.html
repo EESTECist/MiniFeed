@@ -4,18 +4,16 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12" style="text-align: center";>
+            <div class="col-md-6 col-md-offset-3" style="text-align: center";>
                 <h1>Hello World {{ name }}</h1>
+                <div class="list-group">
                 {% for post in object_list %}
-                    <p>{{ post.author }}: {{ post.body }} / {{ post.category }}</p>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">{{ post.author }} : {{ post.category }}</h4>
+                        <p class="list-group-item-text">{{ post.body }}</p>
+                    </a>
                 {% endfor %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                {% for category in categories %}
-                    <p>{{ category }}</p>
-                {% endfor %}
+                </div>
             </div>
         </div>
     </div>

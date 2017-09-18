@@ -1,0 +1,22 @@
+{% extends "theme.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1>{{ object }}</h1>
+                <p>{{ object.description }}</p>
+            </div>
+        </div>
+        {% for post in posts %}
+            <div class="list-group">
+                <div class="row">
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">{{ post.author }}</h4>
+                        <p class="list-group-item-text">{{ post.body }}</p>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
