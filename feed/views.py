@@ -1,6 +1,7 @@
 from django.views import generic
 from feed.models import Category, Post
 from feed.forms import PostForm
+from django.contrib.auth.forms import UserCreationForm
 
 
 class IndexView(generic.CreateView):
@@ -32,3 +33,13 @@ class CategoryDetailView(generic.DetailView):
         category = context['object']
         context['posts'] = category.post_set.all()
         return context
+
+
+class RegistrationView(generic.FormView):
+    form_class = UserCreationForm
+    template_name = "signup.html"
+    success_url = "/"
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
