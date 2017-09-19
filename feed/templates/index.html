@@ -9,16 +9,36 @@
                 {% if user.is_authenticated %}
                     <form action="." method="post">
                         {% csrf_token %}
-                        {{ form|bootstrap }}
-                        <button type="submit" class="btn btn-default">Post!</button>
+                        {{ form.non_field_errors }}
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="col-md-10">
+                                    <div class="fieldWrapper">
+                                        {{ form.body.errors }}
+                                        {{ form.body }}
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-default">Post!</button>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="fieldWrapper">
+                                    {{ form.category.errors }}
+                                    <div class="row" style="line-height: 250%;">
+                                        <div class="col-md-2">
+                                            <label for="{{ form.category.id_for_label }}">Category:</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            {{ form.category }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
-                {% else %}
-                    <p>Not logged in!</p>
                 {% endif %}
             </div>
-        </div>
-        <div class="row">
-            &nbsp;
         </div>
         <div class="row">
             <div class="col-md-6 col-md-offset-3" style="text-align: center";>
@@ -32,7 +52,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 {% endblock %}
